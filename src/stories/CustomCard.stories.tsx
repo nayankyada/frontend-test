@@ -16,7 +16,11 @@ export default {
 }
 
 const UnSelectedTemplate: Story = (_args) => {
-  return <CustomCard cardWidth={229} cardImage={cardImage} cardTitle="Flood zone 3" />
+  const [checked, setChecked] = React.useState(false)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked)
+  }
+  return <CustomCard cardWidth={229} cardImage={cardImage} cardTitle="Flood zone 3" checked={checked} handleChange={handleChange}/>
 }
 
 export const UnSelected = UnSelectedTemplate.bind({})

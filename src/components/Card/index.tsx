@@ -13,15 +13,18 @@ const useStyles = makeStyles<Theme, CustomCardProps>((theme: Theme) => ({
     background: theme.palette.common.white,
     border: props.checked ? `1px solid ${theme.palette.primary.dark}` : `1px solid ${theme.palette.grey[200]}`,
     borderradius: "10px",
+    boxSizing:"border-box",
     boxShadow: props.checked ? `0px 0px 0px 2px ${theme.palette.primary.light}` : "none",
     "&:hover": {
-      boxShadow: `0px 0px 0px 2px ${theme.palette.primary.light}`
+      boxShadow: `0px 0px 0px 2px ${theme.palette.primary.light}`,
+      border: props.checked ? `1px solid ${theme.palette.primary.dark}` : `none`
     }
   }),
   content: {
     display: "flex",
     alignItems: "center",
-    padding: "15px 18px"
+    padding: "15px 18px",
+    boxSizing:"border-box"
   }
 }))
 
@@ -42,7 +45,7 @@ export default function CustomCard(props: CustomCardProps) {
           style={{ paddingRight: "10.25px" }}
         />
         <Typography component="div" variant="body2">
-          Flood zone 3
+          {props.cardTitle}
         </Typography>
       </CardContent>
     </Card>
